@@ -21,6 +21,9 @@
             'service': 'nginx',
             'webuser': 'nginx',
             'conf_file': '/etc/nginx/nginx.conf',
+            'stream_available': '/etc/nginx/sites-available',
+            'stream_enabled': '/etc/nginx/sites-enabled',
+            'stream_use_symlink': True,
             'vhost_available': '/etc/nginx/conf.d',
             'vhost_enabled': '/etc/nginx/conf.d',
             'vhost_use_symlink': False,
@@ -92,6 +95,16 @@
                 ],
             },
         },
+    },
+    'streams': {
+        'disabled_postfix': '.disabled',
+        'symlink_opts': {},
+        'rename_opts': {},
+        'managed_opts': {},
+        'dir_opts': {
+            'makedirs': True,
+        },
+        'managed': {},
     },
     'vhosts': {
         'disabled_postfix': '.disabled',
