@@ -1,6 +1,6 @@
 # nginx.ng.streams_config
 #
-# Manages the configuration of virtual host files.
+# Manages the configuration of streams files.
 
 {% from 'nginx/ng/map.jinja' import nginx, sls_block with context %}
 {% set stream_states = [] %}
