@@ -6,7 +6,7 @@ author "George Shammas <georgyo@gmail.com>"
 start on (filesystem and net-device-up IFACE=lo)
 stop on runlevel [!2345]
  
-env DAEMON=/usr/sbin/nginx
+env DAEMON={{ nginx.sbin_dir }}/nginx
  
 expect fork
 respawn
