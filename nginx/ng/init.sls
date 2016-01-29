@@ -5,6 +5,7 @@
 include:
   - nginx.ng.config
   - nginx.ng.service
+  - nginx.ng.streams
   - nginx.ng.vhosts
   - nginx.ng.certificates
 
