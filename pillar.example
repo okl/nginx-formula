@@ -21,10 +21,14 @@ nginx:
 
 nginx:
   ng:
-    # PPA installing
+    # PPA install
     install_from_ppa: True
     # Set to 'stable', 'development' (mainline), 'community', or 'nightly' for each build accordingly ( https://launchpad.net/~nginx )
     ppa_version: 'stable'
+
+    # Source install
+    source_version: '1.10.0'
+    source_hash: ''
     
     # These are usually set by grains in map.jinja
     lookup:
@@ -37,9 +41,14 @@ nginx:
       vhost_use_symlink: True
       # This is required for RedHat like distros (Amazon Linux) that don't follow semantic versioning for $releasever
       rh_os_releasever: '6'
+      # Currently it can be used on rhel/centos/suse when installing from repo
+      gpg_check: True
 
     # Source compilation is not currently a part of nginx.ng
     from_source: False
+
+    source:
+      opts: {}
 
     package:
       opts: {} # this partially exposes parameters of pkg.installed
@@ -78,9 +87,10 @@ nginx:
         mysite: # relative pathname of the vhost file
           # may be True, False, or None where True is enabled, False, disabled, and None indicates no action
           available_dir: /tmp/sites-available # an alternate directory (not sites-available) where this vhost may be found
-          enabled_dir: /tmp/sites-enabled # an alternate directory (not sites-available) where this vhost may be found
+          enabled_dir: /tmp/sites-enabled # an alternate directory (not sites-enabled) where this vhost may be found
           disabled_name: mysite.aint_on # an alternative disabled name to be use when not symlinking
           enabled: True
+          overwrite: True # overwrite an existing vhost file or not
           
           # May be a list of config options or None, if None, no vhost file will be managed/templated
           # Take server directives as lists of dictionaries. If the dictionary value is another list of

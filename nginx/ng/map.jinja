@@ -16,6 +16,19 @@
             'vhost_use_symlink': True,
             'pid_file': '/run/nginx.pid',
         },
+        'CentOS': {
+            'package': 'nginx',
+            'service': 'nginx',
+            'webuser': 'nginx',
+            'conf_file': '/etc/nginx/nginx.conf',
+            'vhost_available': '/etc/nginx/conf.d',
+            'vhost_enabled': '/etc/nginx/conf.d',
+            'vhost_use_symlink': False,
+            'pid_file': '/run/nginx.pid',
+            'rh_os_releasever': '$releasever',
+            'gpg_check': False,
+            'gpg_key': 'http://nginx.org/keys/nginx_signing.key',
+        },
         'RedHat': {
             'package': 'nginx',
             'service': 'nginx',
@@ -29,6 +42,8 @@
             'vhost_use_symlink': False,
             'pid_file': '/var/run/nginx.pid',
             'rh_os_releasever': '$releasever',
+            'gpg_check': False,
+            'gpg_key': 'http://nginx.org/keys/nginx_signing.key',
         },
         'Suse': {
             'package': 'nginx',
@@ -39,6 +54,8 @@
             'vhost_enabled': '/etc/nginx/conf.d',
             'vhost_use_symlink': False,
             'pid_file': '/run/nginx.pid',
+            'gpg_check': True,
+            'gpg_key': 'http://download.opensuse.org/repositories/server:/http/openSUSE_13.2/repodata/repomd.xml.key'
         },
         'Arch': {
             'package': 'nginx',
@@ -63,6 +80,11 @@
     'install_from_ppa': False,
     'install_from_repo': False,
     'ppa_version': 'stable',
+    'source_version': '1.10.0',
+    'source_hash': '8ed647c3dd65bc4ced03b0e0f6bf9e633eff6b01bac772bcf97077d58bc2be4d',
+    'source': {
+        'opts': {},
+    },
     'package': {
         'opts': {},
     },
